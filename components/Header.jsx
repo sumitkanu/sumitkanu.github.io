@@ -3,6 +3,7 @@ import { Button } from "./ui/button";
 
 //components
 import Nav from "./Nav";
+import MobileNav from "./MobileNav";
 
 const Header = () => {
   return (
@@ -17,14 +18,16 @@ const Header = () => {
             {/* desktop nav: change to xl */}
             <div className="hidden md:flex items-center gap-8">
                 <Nav />
-                <Button href={"/contact"} variant="ghost" size="sm">
-                    Contacts
-                </Button>
+                <Link href={"/contacts"}>
+                    <Button>
+                        Contacts
+                    </Button>
+                </Link>
             </div>
 
             {/* mobile nav */}
             <div className="md:hidden">
-                <Nav />
+                <MobileNav />
             </div>
 
         </div>
