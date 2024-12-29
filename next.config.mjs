@@ -8,7 +8,6 @@ const nextConfig = {
   assetPrefix: isProd ? '/sumitkanu.github.io' : '',
   basePath: isProd ? '/sumitkanu.github.io' : '',
   output: 'export',
-  reactStrictMode: true,
 };
 
 export default nextConfig;
