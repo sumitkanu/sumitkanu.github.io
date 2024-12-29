@@ -1,7 +1,6 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
-  "homepage": "https://suimtkanu.github.io/development",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,7 +10,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d out"
   },
-
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.4",
     "@radix-ui/react-scroll-area": "^1.2.2",
@@ -25,6 +23,7 @@
     "lucide-react": "^0.469.0",
     "next": "15.1.3",
     "react": "^19.0.0",
+    "react-countup": "^6.5.3",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
     "tailwind-merge": "^2.6.0",

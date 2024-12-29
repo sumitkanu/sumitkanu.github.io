@@ -1,3 +1,5 @@
+"use client";
+
 const Experiences = () => {
   return (
     <div>Experiences</div>
