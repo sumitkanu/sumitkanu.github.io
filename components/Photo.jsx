@@ -11,7 +11,7 @@ const Photo = () => {
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.4, duration: 0.4, ease: "easeInOut" }}
             className="h-[298px] w-[298px] xl:h-[498px] xl:w-[498px] mix-blend-lighten absolute">
                 <Image
-                    src="/assets/photo.png"
+                    src="/assets/image.png"
                     alt="Sumit Kanu"
                     fill
                     priority
