@@ -25,6 +25,9 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata = {
   title: "Sumit Kanu",
   description: "Portfolio of Sumit Kanu",
+  icons: {
+    icon: "/assets/logo.ico",
+},
 };
 
 export default function RootLayout({ children }) {
