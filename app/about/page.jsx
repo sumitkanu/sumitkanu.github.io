@@ -3,7 +3,7 @@ import React from 'react';
 const About = () => {
   return (
     <section className="bg-primary text-white py-12 px-6">
-      <div className="container mx-auto max-w-4xl">
+      <div className="container mx-auto">
         <p className="text-lg leading-relaxed mb-6">
           Hello! I'm Sumit Kanu, a passionate and driven software engineer and data scientist currently pursuing my 
           Master of Science in Computer Science at Northeastern University, Boston. With a strong foundation in software 
