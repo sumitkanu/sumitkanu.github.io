@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const experiences = [
   {
-    title: "Full Stack",
+    title: "Full Stack Developer",
     company: "Citigroup",
     date: "2022 - 2024",
     details: [
@@ -52,7 +52,7 @@ const Experiences = () => {
   };
 
   return (
-    <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0">
+    <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-12">
       <div className="container mx-auto">
         <div
           className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-16"
