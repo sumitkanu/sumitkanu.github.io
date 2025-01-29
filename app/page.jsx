@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { FiDownload } from "react-icons/fi";
+import { AiOutlineFilePdf  } from "react-icons/ai";
 
 //components
 import Socials from "@/components/Socials";
@@ -18,19 +18,19 @@ export default function Home() {
               Hello I'm <br /> <span className="text-accent">Sumit Kanu</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
-              Lorem ipsum odor amet, consectetuer adipiscing elit. Commodo bibendum suscipit eu potenti habitant nascetur primis. 
+              A developer with the passion for problem solving and designing innovative software solutions that solve real-world challenges and drive impact.
             </p>
             {/* Button & Socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
-            <a
+              <a
                 href="/assets/Sumit Kanu_SWE_5.pdf"
                 download
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Button variant="outline" size="lg" className="uppercase flex items-center gap-2">
-                  <span>Download CV</span>
-                  <FiDownload className="text-xl" />
+                  <span>View CV</span>
+                  <AiOutlineFilePdf className="text-xl" />
                 </Button>
               </a>
               <div className="mb-8 xl:mb-0">
