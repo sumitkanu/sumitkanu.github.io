@@ -9,9 +9,9 @@ const Photo = () => {
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2, duration: 0.4, ease: "easeIn" }}>
             <motion.div 
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.4, duration: 0.4, ease: "easeInOut" }}
-            className="h-[298px] w-[298px] xl:h-[498px] xl:w-[498px] mix-blend-lighten absolute">
+            className="h-[298px] w-[298px] xl:h-[498px] xl:w-[498px] absolute">
                 <Image
-                    src=""
+                    src="/assets/photo.png"
                     alt="Sumit Kanu"
                     fill
                     priority
