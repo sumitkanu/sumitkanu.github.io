@@ -11,104 +11,135 @@
     --surface:#161b22;
     --surface2:#21262d;
     --border:#30363d;
+    --border-width:2px;
     --text:#e6edf3;
     --muted:#8b949e;
     --accent:#58a6ff;
     --accent2:#3fb950;
     --purple:#bc8cff;
+    --orange:#f0883e;
   }
   html{scroll-behavior:smooth;}
   body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6;}
 
-  nav{position:sticky;top:0;z-index:100;background:rgba(13,17,23,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;}
-  .nav-inner{max-width:900px;margin:auto;display:flex;align-items:center;justify-content:space-between;height:60px;}
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;background:rgba(13,17,23,0.85);backdrop-filter:blur(12px);border-bottom:var(--border-width) solid var(--border);padding:0 2rem;}
+  .nav-inner{max-width:960px;margin:auto;display:flex;align-items:center;justify-content:space-between;height:60px;}
   .logo{font-weight:700;font-size:1.1rem;color:var(--accent);letter-spacing:.5px;}
   .nav-links{display:flex;gap:.25rem;}
   .nav-links a{color:var(--muted);text-decoration:none;padding:.4rem .8rem;border-radius:6px;font-size:.9rem;transition:.2s;}
   .nav-links a:hover{color:var(--text);background:var(--surface2);}
 
   section{padding:80px 2rem;}
-  .container{max-width:900px;margin:auto;}
+  .container{max-width:960px;margin:auto;}
   .section-label{font-size:.8rem;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:.5rem;}
   h2{font-size:2rem;font-weight:700;margin-bottom:2rem;}
 
   /* HERO */
-  #hero{min-height:100vh;display:flex;align-items:center;padding:0 2rem;position:relative;overflow:hidden;}
-  #hero::before{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(88,166,255,.07) 0%,transparent 70%);top:-100px;right:-100px;pointer-events:none;}
-  .hero-content{max-width:900px;margin:auto;width:100%;}
+  #hero{min-height:100vh;display:flex;align-items:center;padding:0 2rem;}
+  .hero-grid{max-width:960px;margin:auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
   .hero-greeting{color:var(--accent2);font-size:1.1rem;font-family:monospace;margin-bottom:1rem;}
-  .hero-name{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.1;margin-bottom:1rem;}
-  .hero-title{font-size:clamp(1.2rem,3vw,1.8rem);color:var(--muted);margin-bottom:1.5rem;}
+  .hero-name{font-size:clamp(2rem,5vw,3.8rem);font-weight:800;line-height:1.1;margin-bottom:1rem;}
+  .hero-title{font-size:clamp(1rem,2.5vw,1.5rem);color:var(--muted);margin-bottom:1.5rem;}
   .hero-title span{color:var(--purple);}
-  .hero-desc{max-width:580px;color:var(--muted);margin-bottom:2.5rem;font-size:1.05rem;}
+  .hero-desc{max-width:480px;color:var(--muted);margin-bottom:2.5rem;font-size:1rem;}
   .btn{display:inline-block;padding:.7rem 1.5rem;border-radius:8px;font-size:.95rem;font-weight:600;text-decoration:none;transition:.2s;cursor:pointer;border:none;}
   .btn-primary{background:var(--accent);color:#0d1117;}
-  .btn-primary:hover{background:#79b8ff;transform:translateY(-1px);}
-  .btn-outline{background:transparent;color:var(--accent);border:1px solid var(--accent);}
-  .btn-outline:hover{background:rgba(88,166,255,.1);}
+  .btn-primary:hover{background:#79b8ff;transform:translateY(-2px);}
+  .btn-outline{background:transparent;color:var(--accent);border:var(--border-width) solid var(--accent);}
+  .btn-outline:hover{background:rgba(88,166,255,.1);transform:translateY(-2px);}
   .hero-btns{display:flex;flex-wrap:wrap;gap:.75rem;}
 
+  /* TERMINAL */
+  .terminal{background:#0d1117;border:var(--border-width) solid var(--border);border-radius:12px;overflow:hidden;font-family:monospace;font-size:.85rem;box-shadow:0 20px 60px rgba(0,0,0,.5);}
+  .terminal-bar{background:var(--surface2);padding:.6rem 1rem;display:flex;align-items:center;gap:.5rem;border-bottom:var(--border-width) solid var(--border);}
+  .dot{width:12px;height:12px;border-radius:50%;}
+  .dot-red{background:#ff5f57;}
+  .dot-yellow{background:#febc2e;}
+  .dot-green{background:#28c840;}
+  .terminal-title{color:var(--muted);font-size:.8rem;margin-left:.5rem;}
+  .terminal-body{padding:1.25rem 1.5rem;min-height:260px;}
+  .t-line{margin-bottom:.4rem;line-height:1.6;}
+  .t-prompt{color:var(--accent2);}
+  .t-cmd{color:var(--text);}
+  .t-comment{color:var(--muted);}
+  .t-key{color:var(--purple);}
+  .t-str{color:var(--orange);}
+  .t-num{color:var(--accent);}
+  .t-bool{color:#ff7b72;}
+  .cursor{display:inline-block;width:9px;height:1.1em;background:var(--accent);vertical-align:text-bottom;animation:blink 1s step-end infinite;}
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
   /* ABOUT */
-  #about{background:var(--surface);}
+  #about{background:var(--surface);border-top:var(--border-width) solid var(--border);border-bottom:var(--border-width) solid var(--border);}
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
   .about-text p{color:var(--muted);margin-bottom:1rem;font-size:1.02rem;}
   .skills-title{font-size:.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:.75rem;margin-top:1.5rem;}
   .tags{display:flex;flex-wrap:wrap;gap:.5rem;}
-  .tag{background:var(--surface2);border:1px solid var(--border);color:var(--accent);padding:.25rem .75rem;border-radius:20px;font-size:.82rem;font-family:monospace;}
+  .tag{background:var(--surface2);border:var(--border-width) solid var(--border);color:var(--accent);padding:.25rem .75rem;border-radius:20px;font-size:.82rem;font-family:monospace;transition:.15s;}
+  .tag:hover{border-color:var(--accent);}
   .tag.green{color:var(--accent2);}
+  .tag.green:hover{border-color:var(--accent2);}
   .tag.purple{color:var(--purple);}
-  .tag.orange{color:#f0883e;}
+  .tag.purple:hover{border-color:var(--purple);}
+  .tag.orange{color:var(--orange);}
+  .tag.orange:hover{border-color:var(--orange);}
   .stat-cards{display:grid;gap:1rem;}
-  .stat-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;}
+  .stat-card{background:var(--surface2);border:var(--border-width) solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;transition:.2s;}
+  .stat-card:hover{border-color:var(--accent);transform:translateX(4px);}
   .stat-num{font-size:2rem;font-weight:800;color:var(--accent);}
   .stat-label{color:var(--muted);font-size:.9rem;}
 
   /* EXPERIENCE */
   .timeline{position:relative;padding-left:2rem;}
-  .timeline::before{content:'';position:absolute;left:0;top:6px;bottom:0;width:2px;background:var(--border);}
+  .timeline::before{content:'';position:absolute;left:0;top:6px;bottom:0;width:var(--border-width);background:var(--border);}
   .exp-item{position:relative;margin-bottom:2.5rem;}
   .exp-item::before{content:'';position:absolute;left:-2.4rem;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);}
+  .exp-card{background:var(--surface);border:var(--border-width) solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;transition:.2s;}
+  .exp-card:hover{border-color:var(--accent);}
   .exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;margin-bottom:.25rem;}
   .exp-role{font-size:1.1rem;font-weight:700;}
   .exp-company{color:var(--accent);font-weight:600;}
-  .exp-date{color:var(--muted);font-size:.85rem;font-family:monospace;background:var(--surface2);padding:.2rem .6rem;border-radius:4px;}
+  .exp-date{color:var(--muted);font-size:.85rem;font-family:monospace;background:var(--surface2);padding:.2rem .6rem;border-radius:4px;border:var(--border-width) solid var(--border);}
   .exp-bullets{color:var(--muted);font-size:.95rem;margin-top:.5rem;padding-left:1.1rem;}
   .exp-bullets li{margin-bottom:.35rem;}
   .exp-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.75rem;}
   .sub-role{font-size:.8rem;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-top:.75rem;margin-bottom:.25rem;}
 
   /* PROJECTS */
-  #projects{background:var(--surface);}
+  #projects{background:var(--surface);border-top:var(--border-width) solid var(--border);border-bottom:var(--border-width) solid var(--border);}
   .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.25rem;}
-  .project-card{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:1.5rem;display:flex;flex-direction:column;gap:.75rem;transition:.2s;position:relative;overflow:hidden;}
-  .project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--purple));opacity:0;transition:.2s;}
-  .project-card:hover{border-color:var(--accent);transform:translateY(-3px);}
+  .project-card{background:var(--bg);border:var(--border-width) solid var(--border);border-radius:12px;padding:1.5rem;display:flex;flex-direction:column;gap:.75rem;transition:.2s;position:relative;overflow:hidden;}
+  .project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--purple));opacity:0;transition:.3s;}
+  .project-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 8px 30px rgba(88,166,255,.1);}
   .project-card:hover::before{opacity:1;}
   .project-icon{font-size:1.5rem;}
   .project-name{font-size:1.05rem;font-weight:700;}
   .project-desc{color:var(--muted);font-size:.9rem;flex:1;}
   .project-footer{display:flex;justify-content:space-between;align-items:center;margin-top:.5rem;}
   .project-links{display:flex;gap:.75rem;}
-  .project-links a{color:var(--muted);font-size:.85rem;text-decoration:none;transition:.2s;}
-  .project-links a:hover{color:var(--accent);}
+  .project-links a{color:var(--muted);font-size:.85rem;text-decoration:none;transition:.2s;padding:.3rem .6rem;border:var(--border-width) solid transparent;border-radius:6px;}
+  .project-links a:hover{color:var(--accent);border-color:var(--accent);}
 
   /* CONTACT */
-  .contact-inner{max-width:560px;}
+  .contact-inner{max-width:600px;}
   .contact-inner p{color:var(--muted);margin-bottom:2rem;font-size:1.05rem;}
   .contact-links{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem;}
-  .contact-link{display:flex;align-items:center;gap:.5rem;padding:.65rem 1.25rem;border:1px solid var(--border);border-radius:8px;color:var(--text);text-decoration:none;font-size:.95rem;transition:.2s;background:var(--surface);}
-  .contact-link:hover{border-color:var(--accent);color:var(--accent);background:rgba(88,166,255,.05);}
+  .contact-link{display:flex;align-items:center;gap:.5rem;padding:.65rem 1.25rem;border:var(--border-width) solid var(--border);border-radius:8px;color:var(--text);text-decoration:none;font-size:.95rem;transition:.2s;background:var(--surface);}
+  .contact-link:hover{border-color:var(--accent);color:var(--accent);background:rgba(88,166,255,.05);transform:translateY(-2px);}
   .copy-email{display:flex;align-items:center;gap:.75rem;}
-  .email-pill{background:var(--surface2);border:1px solid var(--border);padding:.5rem 1rem;border-radius:8px;font-family:monospace;font-size:.9rem;color:var(--muted);}
-  .copy-btn{padding:.5rem 1rem;border-radius:8px;background:var(--surface2);border:1px solid var(--border);color:var(--text);font-size:.85rem;cursor:pointer;transition:.2s;}
+  .email-pill{background:var(--surface2);border:var(--border-width) solid var(--border);padding:.5rem 1rem;border-radius:8px;font-family:monospace;font-size:.9rem;color:var(--muted);}
+  .copy-btn{padding:.5rem 1rem;border-radius:8px;background:var(--surface2);border:var(--border-width) solid var(--border);color:var(--text);font-size:.85rem;cursor:pointer;transition:.2s;}
   .copy-btn:hover{border-color:var(--accent2);color:var(--accent2);}
 
-  footer{text-align:center;padding:2rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border);}
+  footer{text-align:center;padding:2rem;color:var(--muted);font-size:.85rem;border-top:var(--border-width) solid var(--border);}
 
-  .fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
+  .fade-in{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease;}
   .fade-in.visible{opacity:1;transform:none;}
 
-  @media(max-width:640px){
+  @media(max-width:700px){
+    .hero-grid{grid-template-columns:1fr;}
+    .terminal{display:none;}
     .about-grid{grid-template-columns:1fr;}
     .nav-links a{padding:.4rem .5rem;font-size:.82rem;}
   }
@@ -130,14 +161,27 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-content">
-    <div class="hero-greeting">👋 Hi there, I'm</div>
-    <h1 class="hero-name">Sumit Kanu</h1>
-    <div class="hero-title">Full Stack Engineer &amp; <span>AI/ML Developer</span></div>
-    <p class="hero-desc">I build scalable web applications, data pipelines, and AI-driven systems. Currently pursuing my MS in Computer Science at Northeastern University while exploring the cutting edge of LLMs and multi-agent workflows.</p>
-    <div class="hero-btns">
-      <a href="#experience" class="btn btn-primary">View My Work</a>
-      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-greeting">👋 Hi there, I'm</div>
+      <h1 class="hero-name">Sumit Kanu</h1>
+      <div class="hero-title">Full Stack Engineer &amp; <span>AI/ML Developer</span></div>
+      <p class="hero-desc">I build scalable web applications, data pipelines, and AI-driven systems. Currently pursuing my MS in CS at Northeastern while exploring the cutting edge of LLMs and multi-agent workflows.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="dot dot-red"></div>
+          <div class="dot dot-yellow"></div>
+          <div class="dot dot-green"></div>
+          <span class="terminal-title">sumit.json</span>
+        </div>
+        <div class="terminal-body" id="terminal-body"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -150,9 +194,8 @@
     <div class="about-grid">
       <div class="about-text">
         <p>I'm a software engineer and ML enthusiast with 3+ years of industry experience at Citigroup, currently interning at FedEx Dataworks building AI-powered multi-agent systems.</p>
-        <p>My background spans full-stack development, data engineering, and deep learning research — I love working across the stack and tackling problems that sit at the intersection of software and intelligence.</p>
+        <p>My background spans full-stack development, data engineering, and deep learning research — I love working across the stack and tackling problems at the intersection of software and intelligence.</p>
         <p>Currently pursuing my MS in Computer Science at Northeastern (GPA: 4.0), with coursework in AI, GenAI, Distributed Systems, and Cloud Computing.</p>
-
         <div class="skills-title">Languages</div>
         <div class="tags">
           <span class="tag">Python</span><span class="tag">TypeScript</span><span class="tag">JavaScript</span>
@@ -177,22 +220,10 @@
         </div>
       </div>
       <div class="stat-cards">
-        <div class="stat-card">
-          <div class="stat-num">4.0</div>
-          <div class="stat-label">GPA at Northeastern University</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">3+</div>
-          <div class="stat-label">Years of industry experience</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">5K+</div>
-          <div class="stat-label">Internal users impacted at Citi</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">90%</div>
-          <div class="stat-label">Doc comparison time reduced @ FedEx</div>
-        </div>
+        <div class="stat-card"><div class="stat-num">4.0</div><div class="stat-label">GPA at Northeastern University</div></div>
+        <div class="stat-card"><div class="stat-num">3+</div><div class="stat-label">Years of industry experience</div></div>
+        <div class="stat-card"><div class="stat-num">5K+</div><div class="stat-label">Internal users impacted at Citi</div></div>
+        <div class="stat-card"><div class="stat-num">90%</div><div class="stat-label">Doc comparison time reduced @ FedEx</div></div>
       </div>
     </div>
   </div>
@@ -206,76 +237,70 @@
     <div class="timeline">
 
       <div class="exp-item">
-        <div class="exp-header">
-          <div>
-            <div class="exp-role">Data Science Intern</div>
-            <div class="exp-company">FedEx Dataworks · Boston, USA</div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div><div class="exp-role">Data Science Intern</div><div class="exp-company">FedEx Dataworks · Boston, USA</div></div>
+            <div class="exp-date">Jun 2025 — Dec 2025</div>
           </div>
-          <div class="exp-date">Jun 2025 — Dec 2025</div>
-        </div>
-        <ul class="exp-bullets">
-          <li>Automated weather disruption planning with OpenAI-driven multi-agent workflows on Databricks, achieving a <strong>40% reduction</strong> in manual planning effort.</li>
-          <li>Built an MCP server–client interface over internal databases as a shared data layer for agent workflows and internal teams.</li>
-          <li>Achieved a <strong>90% reduction</strong> in document comparison time via an LLM-based change summary pipeline with rule-based PDF parsing and token-level diffs.</li>
-        </ul>
-        <div class="exp-tags">
-          <span class="tag">LangChain</span><span class="tag">Autogen</span><span class="tag">OpenAI</span>
-          <span class="tag">Databricks</span><span class="tag">MCP</span><span class="tag">PyMuPDF</span>
+          <ul class="exp-bullets">
+            <li>Automated weather disruption planning with OpenAI-driven multi-agent workflows on Databricks, achieving a <strong>40% reduction</strong> in manual planning effort.</li>
+            <li>Built an MCP server–client interface over internal databases as a shared data layer for agent workflows and internal teams.</li>
+            <li>Achieved a <strong>90% reduction</strong> in document comparison time via an LLM-based change summary pipeline with rule-based PDF parsing and token-level diffs.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="tag">LangChain</span><span class="tag">Autogen</span><span class="tag">OpenAI</span><span class="tag">Databricks</span><span class="tag">MCP</span><span class="tag">PyMuPDF</span>
+          </div>
         </div>
       </div>
 
       <div class="exp-item">
-        <div class="exp-header">
-          <div>
-            <div class="exp-role">Software Engineer</div>
-            <div class="exp-company">Citigroup · Pune, India</div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div><div class="exp-role">Software Engineer</div><div class="exp-company">Citigroup · Pune, India</div></div>
+            <div class="exp-date">Jul 2021 — Aug 2024</div>
           </div>
-          <div class="exp-date">Jul 2021 — Aug 2024</div>
-        </div>
-        <div class="sub-role">Full Stack</div>
-        <ul class="exp-bullets">
-          <li>Developed modular web apps for data reconciliation and reporting, cutting workflow time by <strong>50%</strong> for 5,000+ internal users.</li>
-          <li>Led integration of a proprietary component library that improved UX, earning <strong>Citi-wide recognition</strong>.</li>
-          <li>Built end-to-end features — bulk record editing, live data sync, formula-based reports — facilitating retirement of Power BI and EUC tools.</li>
-        </ul>
-        <div class="sub-role">Data Engineer</div>
-        <ul class="exp-bullets">
-          <li>Developed PySpark models to flag anomalous trading patterns in collaboration with data scientists.</li>
-          <li>Built scalable ETL pipelines using Spark, Hive, and Hadoop for large-scale trading data processing.</li>
-          <li>Delivered a Flask + Redis + Plotly dashboard, cutting analysis turnaround by <strong>40%</strong>. Received the <strong>Gratitude Award</strong> for ownership and process improvement.</li>
-        </ul>
-        <div class="exp-tags">
-          <span class="tag">Angular</span><span class="tag">Java</span><span class="tag">PySpark</span>
-          <span class="tag">Hadoop</span><span class="tag">GraphQL</span><span class="tag">Kubernetes</span><span class="tag">Socket.io</span>
+          <div class="sub-role">Full Stack</div>
+          <ul class="exp-bullets">
+            <li>Developed modular web apps for data reconciliation and reporting, cutting workflow time by <strong>50%</strong> for 5,000+ internal users.</li>
+            <li>Led integration of a proprietary component library that improved UX, earning <strong>Citi-wide recognition</strong>.</li>
+            <li>Built end-to-end features — bulk record editing, live data sync, formula-based reports — facilitating retirement of Power BI and EUC tools.</li>
+          </ul>
+          <div class="sub-role">Data Engineer</div>
+          <ul class="exp-bullets">
+            <li>Developed PySpark models to flag anomalous trading patterns in collaboration with data scientists.</li>
+            <li>Built scalable ETL pipelines using Spark, Hive, and Hadoop for large-scale trading data processing.</li>
+            <li>Delivered a Flask + Redis + Plotly dashboard, cutting analysis turnaround by <strong>40%</strong>. Received the <strong>Gratitude Award</strong> for ownership and process improvement.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="tag">Angular</span><span class="tag">Java</span><span class="tag">PySpark</span><span class="tag">Hadoop</span><span class="tag">GraphQL</span><span class="tag">Kubernetes</span><span class="tag">Socket.io</span>
+          </div>
         </div>
       </div>
 
       <div class="exp-item">
-        <div class="exp-header">
-          <div>
-            <div class="exp-role">Network Research Intern</div>
-            <div class="exp-company">IIT Guwahati · Assam, India</div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div><div class="exp-role">Network Research Intern</div><div class="exp-company">IIT Guwahati · Assam, India</div></div>
+            <div class="exp-date">Jun 2020 — Jul 2020</div>
           </div>
-          <div class="exp-date">Jun 2020 — Jul 2020</div>
+          <ul class="exp-bullets">
+            <li>Simulated beamforming in wireless MIMO networks using passive IRS in MATLAB; applied convex optimization achieving an <strong>8dBm signal gain</strong>.</li>
+          </ul>
+          <div class="exp-tags"><span class="tag">MATLAB</span><span class="tag">Convex Optimization</span><span class="tag">MIMO</span></div>
         </div>
-        <ul class="exp-bullets">
-          <li>Simulated beamforming in wireless MIMO networks using passive Intelligent Reflecting Surfaces (IRS) in MATLAB; applied convex optimization achieving an <strong>8dBm signal gain</strong>.</li>
-        </ul>
-        <div class="exp-tags"><span class="tag">MATLAB</span><span class="tag">Convex Optimization</span><span class="tag">MIMO</span></div>
       </div>
 
       <div class="exp-item">
-        <div class="exp-header">
-          <div>
-            <div class="exp-role">IoT Research Intern</div>
-            <div class="exp-company">IIT Gandhinagar · Gujarat, India</div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div><div class="exp-role">IoT Research Intern</div><div class="exp-company">IIT Gandhinagar · Gujarat, India</div></div>
+            <div class="exp-date">May 2019 — Jul 2019</div>
           </div>
-          <div class="exp-date">May 2019 — Jul 2019</div>
+          <ul class="exp-bullets">
+            <li>Optimized a LoRa-based IoT network for air quality monitoring, boosting range by <strong>30%</strong> and reducing packet loss.</li>
+          </ul>
+          <div class="exp-tags"><span class="tag">IoT</span><span class="tag">LoRa</span><span class="tag">Networking</span></div>
         </div>
-        <ul class="exp-bullets">
-          <li>Optimized a LoRa-based IoT network for air quality monitoring, boosting range by <strong>30%</strong> and reducing packet loss.</li>
-        </ul>
-        <div class="exp-tags"><span class="tag">IoT</span><span class="tag">LoRa</span><span class="tag">Networking</span></div>
       </div>
 
     </div>
@@ -292,16 +317,11 @@
       <div class="project-card">
         <div class="project-icon">🤖</div>
         <div class="project-name">Dungeon Master</div>
-        <p class="project-desc">Dual-agent reinforcement learning framework for procedural 2D game level generation. CNN-based DQN generator + Q-learning solver. Generated 5,000+ unique solvable dungeons with 85%+ solver success rate across 10 difficulty levels.</p>
-        <div class="exp-tags">
-          <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">CUDA</span><span class="tag">NumPy</span>
-        </div>
+        <p class="project-desc">Dual-agent RL framework for procedural 2D game level generation. CNN-based DQN generator + Q-learning solver. Generated 5,000+ unique solvable dungeons with 85%+ solver success rate across 10 difficulty levels.</p>
+        <div class="exp-tags"><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">CUDA</span><span class="tag">NumPy</span></div>
         <div class="project-footer">
           <div class="project-links">
-            <a href="https://github.com/sumitkanu" target="_blank">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              GitHub
-            </a>
+            <a href="https://github.com/sumitkanu" target="_blank">⎇ GitHub</a>
           </div>
         </div>
       </div>
@@ -309,17 +329,12 @@
       <div class="project-card">
         <div class="project-icon">☁️</div>
         <div class="project-name">CloudX-Net</div>
-        <p class="project-desc">Novel CNN encoder-decoder architecture for semantic cloud segmentation from satellite imagery. Used ASPP and Separable Convolutions to improve accuracy by 2% over benchmarks while reducing trainable parameters by 50%.</p>
-        <div class="exp-tags">
-          <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">NumPy</span>
-        </div>
+        <p class="project-desc">Novel CNN encoder-decoder for semantic cloud segmentation from satellite imagery. ASPP + Separable Convolutions improved accuracy by 2% over benchmarks while reducing trainable parameters by 50%.</p>
+        <div class="exp-tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">NumPy</span></div>
         <div class="project-footer">
           <div class="project-links">
-            <a href="https://github.com/sumitkanu" target="_blank">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              GitHub
-            </a>
-            <a href="#">↗ Paper</a>
+            <a href="https://github.com/sumitkanu" target="_blank">⎇ GitHub</a>
+            <a href="#" target="_blank">↗ Paper</a>
           </div>
         </div>
       </div>
@@ -327,16 +342,11 @@
       <div class="project-card">
         <div class="project-icon">🎬</div>
         <div class="project-name">Binge Vault</div>
-        <p class="project-desc">Full-stack media tracking platform with authentication, personalized recommendations, and an LLM-powered conversational interface for content discovery. Deployed via Docker and CI/CD pipelines.</p>
-        <div class="exp-tags">
-          <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span><span class="tag">Redis</span><span class="tag">Docker</span>
-        </div>
+        <p class="project-desc">Full-stack media tracking platform with auth, personalized recommendations, and an LLM-powered conversational interface. Deployed via Docker and CI/CD pipelines with Bull.js queuing and Redis caching.</p>
+        <div class="exp-tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span><span class="tag">Redis</span><span class="tag">Docker</span></div>
         <div class="project-footer">
           <div class="project-links">
-            <a href="https://github.com/sumitkanu" target="_blank">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              GitHub
-            </a>
+            <a href="https://github.com/sumitkanu" target="_blank">⎇ GitHub</a>
           </div>
         </div>
       </div>
@@ -344,16 +354,11 @@
       <div class="project-card">
         <div class="project-icon">📈</div>
         <div class="project-name">Trade Winds</div>
-        <p class="project-desc">Secure stock trading platform with Spring Boot backend, Angular frontend, and Auth0 SSO via SPNEGO/Kerberos. Hosted on AWS (S3 + RDS) for high availability and scalability.</p>
-        <div class="exp-tags">
-          <span class="tag">Spring Boot</span><span class="tag">Angular</span><span class="tag">AWS</span><span class="tag">Kerberos</span>
-        </div>
+        <p class="project-desc">Secure stock trading platform with Spring Boot backend, Angular frontend, Auth0 SSO via SPNEGO/Kerberos. Hosted on AWS (S3 + RDS) for high availability and scalability.</p>
+        <div class="exp-tags"><span class="tag">Spring Boot</span><span class="tag">Angular</span><span class="tag">AWS</span><span class="tag">Kerberos</span></div>
         <div class="project-footer">
           <div class="project-links">
-            <a href="https://github.com/sumitkanu" target="_blank">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              GitHub
-            </a>
+            <a href="https://github.com/sumitkanu" target="_blank">⎇ GitHub</a>
           </div>
         </div>
       </div>
@@ -370,7 +375,7 @@
     <div class="contact-inner">
       <p>I'm open to new opportunities, collaborations, or just a good conversation about AI and software. My inbox is always open!</p>
       <div class="contact-links">
-        <a href="kanu.s@northeastern.edu" class="contact-link">
+        <a href="mailto:kanu.s@northeastern.edu" class="contact-link">
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           Email
         </a>
@@ -381,6 +386,10 @@
         <a href="https://www.linkedin.com/in/sk131" target="_blank" class="contact-link">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
           LinkedIn
+        </a>
+        <a href="https://scholar.google.com" target="_blank" class="contact-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+          Google Scholar
         </a>
       </div>
       <div class="copy-email">
@@ -398,11 +407,13 @@
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 
+  // Fade in
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
   }, {threshold: 0.1});
   document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 
+  // Copy email
   function copyEmail(btn) {
     navigator.clipboard.writeText('kanu.s@northeastern.edu');
     btn.textContent = 'Copied!';
@@ -410,6 +421,38 @@
     btn.style.borderColor = 'var(--accent2)';
     setTimeout(() => { btn.textContent = 'Copy'; btn.style.color = ''; btn.style.borderColor = ''; }, 2000);
   }
+
+  // Terminal typewriter
+  const lines = [
+    { html: '<span class="t-prompt">$</span> <span class="t-cmd">cat sumit.json</span>', delay: 0 },
+    { html: '<span class="t-comment">{</span>', delay: 600 },
+    { html: '&nbsp;&nbsp;<span class="t-key">"name"</span>: <span class="t-str">"Sumit Kanu"</span>,', delay: 300 },
+    { html: '&nbsp;&nbsp;<span class="t-key">"role"</span>: <span class="t-str">"SWE + AI/ML"</span>,', delay: 300 },
+    { html: '&nbsp;&nbsp;<span class="t-key">"location"</span>: <span class="t-str">"New York, NY"</span>,', delay: 300 },
+    { html: '&nbsp;&nbsp;<span class="t-key">"gpa"</span>: <span class="t-num">4.0</span>,', delay: 300 },
+    { html: '&nbsp;&nbsp;<span class="t-key">"experience"</span>: <span class="t-str">"3+ years"</span>,', delay: 300 },
+    { html: '&nbsp;&nbsp;<span class="t-key">"current"</span>: <span class="t-str">"FedEx Dataworks"</span>,', delay: 300 },
+    { html: '&nbsp;&nbsp;<span class="t-key">"interests"</span>: [', delay: 300 },
+    { html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Multi-agent AI"</span>,', delay: 250 },
+    { html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Distributed Systems"</span>,', delay: 250 },
+    { html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Deep Learning"</span>', delay: 250 },
+    { html: '&nbsp;&nbsp;],', delay: 200 },
+    { html: '&nbsp;&nbsp;<span class="t-key">"open_to_work"</span>: <span class="t-bool">true</span>', delay: 300 },
+    { html: '<span class="t-comment">}</span>', delay: 300 },
+  ];
+
+  const body = document.getElementById('terminal-body');
+  let total = 0;
+  lines.forEach((l, i) => {
+    total += l.delay;
+    setTimeout(() => {
+      const isLast = i === lines.length - 1;
+      const div = document.createElement('div');
+      div.className = 't-line';
+      div.innerHTML = l.html + (isLast ? ' <span class="cursor"></span>' : '');
+      body.appendChild(div);
+    }, total);
+  });
 </script>
 </body>
 </html>
